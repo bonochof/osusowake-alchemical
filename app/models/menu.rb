@@ -1,3 +1,3 @@
-class Menu < ApplicationRecord
+class Menu < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 end
