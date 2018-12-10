@@ -1,0 +1,8 @@
+$ sudo mysql
+> create database osusowake;
+> grant all on osusowake.* to osusowake@localhost identified by 'alchemical';
+> grant file on *.* to osusowake@localhost;
+> quit
+$ mysql -u osusowake -p
+(alchemical)
+> quit
