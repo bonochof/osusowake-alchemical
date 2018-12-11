@@ -35,15 +35,15 @@ table.login{
   padding-bottom: 20px;
 }
 
-h1{
-  position: relative;
+/*おすそわけ錬金術*/
+.menu_back{
   color: #158b2b;
   font-size: 40px;
   padding: 10px 0;
   text-align: left;
   margin: 1.5em 0;
 }
-
+/*装飾*/
 h1:before{
   content: "";
   position: absolute;
@@ -66,6 +66,16 @@ input.red{
 }
 
 .btn_black{
+ height:80px;
+ width:80px;
+ top:0px;
+}
+
+.btn{
+position:relative;
+}
+
+/*.btn_black{
   position: relative;
   display: inline-block;
   font-weight: bold;
@@ -107,6 +117,7 @@ input.red{
 .btn_black:hover:after{
   top: 3px;
 }
+*/
 
 .btn_blue{
   position: relative;
@@ -300,17 +311,20 @@ table.chat{
 }
 
 div.menu{
-	width:950px;
-	height:400px;
+	width:1200px;
+	height:500px;
 	background-color:#fff;
-  top:-220px;
-  left:-100px;
+	position:relative;
+  top:220px;
   font-size:16px;
   font-weight:bold;
   font-family:"ＤＦロマン雪W9",fantasy;
   margin-left: auto;
 	margin-right: auto;
 }
+
+
+
 section .inner div {
     opacity: 0;
     -webkit-transform-origin: 0px 0px;
@@ -328,8 +342,8 @@ section .inner div {
 #sakura .inner div {
     position: absolute;
     display: block;
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     background: url("img01.png") no-repeat;
 }
 section .inner2 div {
@@ -349,8 +363,8 @@ section .inner2 div {
 #sakura .inner2 div {
     position: absolute;
     display: block;
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     background: url("img09.png") no-repeat;
 }
 #sakura .inner div.flake1,

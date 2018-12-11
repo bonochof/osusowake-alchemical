@@ -17,16 +17,18 @@ $head = <<<EOH
 EOH;
 echo $head;
 echo "<body>";
-echo "<p><h1>おすそわけ錬金術</h1></p>";
-echo "<div class=logo><img src='img01.png' width='300' height='150'></div>";
+//echo "<p><h1>おすそわけ錬金術</h1></p>";
+echo "<a href='menu.php' class='menu_back'>";
+echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "</a>";
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if(empty($_SESSION["login"])){
-  echo "<input type='image' value='ログイン' class='btn_black'>";
+  echo "<input type='image' src='login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
 }
 else{
-  echo $_SESSION["login"]." さん こんにちは<br>";
-  echo "<input type='image' value='ログアウト' class='btn_black'>";
+  echo $_SESSION["login"]." さん こんにちは";
+  echo "<input type='image' src='logout.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p></div>";
@@ -34,7 +36,7 @@ echo "<p><form method='POST' action='syori.php'>";
 /*echo "<input type='image' value='メッセージ表示' class='btn_blue'>";*/
 echo "<input type='hidden' name='h' value='sel'>";
 echo "</form></p>";
-echo "<hr>";
+
 /*if(empty($_SESSION["login"])){
   echo "<p>メッセージを送信するにはログインしてください</p>";
 }
@@ -71,7 +73,10 @@ if(empty($_SESSION["login"])){
 //echo "</form></p>";
 
 echo "<div align='center' class = 'menu'>";
-echo "<img src='img01.png' width='300' height='300' vspace='50' hspace='30' align='left'></div>";
+echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
+if(isset($_SESSION["login"])){
+  echo "<input type='image' value='削除' class='delete' align='right'>";}
+echo "</div>";
 echo "<section id='sakura'>";
 echo "<div class='inner'>";
 echo "<div class='flake1'></div>";
@@ -83,7 +88,6 @@ echo "<div class='flake6'></div>";
 echo "<div class='flake7'></div>";
 echo "<div class='flake8'></div>";
 echo "</div>";
-
 echo "<div class='inner2'>";
 echo "<div class='flake9'></div>";
 echo "<div class='flake10'></div>";

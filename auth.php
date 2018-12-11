@@ -16,7 +16,10 @@ $head = <<<EOH
 EOH;
 echo $head;
 echo "<body>";
-echo "<p><h1>おすそわけ錬金術</h1></p>";
+//echo "<p><h1>おすそわけ錬金術</h1></p>";
+echo "<a href='menu.php' class='menu_back'>";
+echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "</a>";
 $h_d = $_POST["h"];
 echo "<form method='POST' action='auth.php'>";
 switch($h_d){
@@ -32,7 +35,7 @@ case "judge":
 case "login":
   echo "<table class='login'><tr><td>ID</td><td><input type='text' name='id'></td></tr>";
   echo "<tr><td>パスワード</td><td><input type='password' name='pwd'></td></tr></table>";
-  echo "<input type='image' value='ログイン' class='btn_black'>";
+  echo "<input type='image' value='ログイン' class='btn'>";
   echo "<input type='hidden' name='h' value='judge'>";
   break;
 case "logout":
