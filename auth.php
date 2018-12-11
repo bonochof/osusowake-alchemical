@@ -10,13 +10,13 @@ $head = <<<EOH
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta name="home" content="このページはセッション処理用ページです">
 <meta name="keyword" content="掲示板, MySQL, PHP">
-<title>たかたの掲示板</title>
+<title>おすそわけ錬金術</title>
 <link rel="stylesheet" href="./menu.css" type="text/css">
 </head>
 EOH;
 echo $head;
 echo "<body>";
-echo "<p><h1>たかたの掲示板</h1></p>";
+echo "<p><h1>おすそわけ錬金術</h1></p>";
 $h_d = $_POST["h"];
 echo "<form method='POST' action='auth.php'>";
 switch($h_d){
