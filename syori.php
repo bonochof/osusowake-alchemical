@@ -9,13 +9,13 @@ $head = <<<EOH
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta name="home" content="このページはDB処理用ページです">
 <meta name="keyword" content="掲示板, MySQL, PHP">
-<title>たかたの掲示板</title>
+<title>おすそわけ錬金樹</title>
 <link rel="stylesheet" href="./menu.css" type="text/css">
 </head>
 EOH;
 echo $head;
 echo "<body>";
-echo "<p><h1>たかたの掲示板</h1></p>";
+echo "<p><h1>おすそわけ錬金樹</h1></p>";
 try{
   /*** DB接続 ***/
   $s = new PDO("mysql:host=".$SERV.";dbname=".$DBNM.";charset=utf8", $USER, $PASS);
