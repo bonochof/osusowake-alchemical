@@ -5,4 +5,6 @@ $ sudo mysql
 > quit
 $ mysql -u osusowake -p
 (alchemical)
+> use osusowake
+> create table menu (id int primary key, name varchar(256), ing varchar(1024), image varbinary(256));
 > quit
