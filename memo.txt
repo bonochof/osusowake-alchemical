@@ -6,5 +6,6 @@ $ sudo mysql
 $ mysql -u osusowake -p
 (alchemical)
 > use osusowake
+> create table user (id varchar(256), passwd varchar(256), point int default 0);
 > create table menu (id int primary key, name varchar(256), ing varchar(1024), image varbinary(256));
 > quit
