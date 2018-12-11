@@ -1,5 +1,5 @@
 body{
-  background: linear-gradient(Snow, Gold);
+  background: #D9E5FF;
   font-family: "Meiryo";
   text-align: center;
 }
@@ -12,10 +12,17 @@ p.title{
   text-shadow: 3px 3px 1px black;
 }
 
+div.logo{
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
 div.right{
   position: relative;
   left: 200px;
 }
+
 
 div.textbox{
   padding-bottom: 20px;
@@ -33,7 +40,7 @@ h1{
   color: #158b2b;
   font-size: 40px;
   padding: 10px 0;
-  text-align: center;
+  text-align: left;
   margin: 1.5em 0;
 }
 
@@ -291,3 +298,224 @@ table.chat{
 	margin: 5px;
 	padding: 5px;
 }
+
+div.menu{
+	width:950px;
+	height:400px;
+	background-color:#fff;
+  top:-220px;
+  left:-100px;
+  font-size:16px;
+  font-weight:bold;
+  font-family:"ＤＦロマン雪W9",fantasy;
+  margin-left: auto;
+	margin-right: auto;
+}
+section .inner div {
+    opacity: 0;
+    -webkit-transform-origin: 0px 0px;
+    -ms-transform-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    -webkit-animation-name: Drop;
+    animation-name: Drop;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+#sakura .inner div {
+    position: absolute;
+    display: block;
+    width: 90px;
+    height: 90px;
+    background: url("img01.png") no-repeat;
+}
+section .inner2 div {
+    opacity: 0;
+    -webkit-transform-origin: 0px 0px;
+    -ms-transform-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    -webkit-animation-name: Drop;
+    animation-name: Drop;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+#sakura .inner2 div {
+    position: absolute;
+    display: block;
+    width: 90px;
+    height: 90px;
+    background: url("img09.png") no-repeat;
+}
+#sakura .inner div.flake1,
+#sakura .inner div.flake3,
+#sakura .inner div.flake5,
+#sakura .inner div.flake9{
+    background-size: 10px 10px !important;
+}
+
+#sakura .inner div.flake2,
+#sakura .inner div.flake4,
+#sakura .inner div.flake6,
+#sakura .inner div.flake8 {
+    background-size: 10px 10px !important;
+}
+#sakura .inner2 div.flake9,
+#sakura .inner2 div.flake10,
+#sakura .inner2 div.flake11,
+#sakura .inner2 div.flake12, 
+#sakura .inner2 div.flake13{
+    background-size: 10px 10px !important;
+}
+
+.flake1 {
+    left: 1300px;
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+}
+
+
+
+.flake2 {
+    left: 700px;
+    -webkit-animation-duration: 2.7s;
+    animation-duration: 2.7s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+
+.flake3 {
+    left: 900px;
+    -webkit-animation-duration: 2.9s;
+    animation-duration: 2.9s;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.flake4 {
+    left: 600px;
+    -webkit-animation-duration: 2.4s;
+    animation-duration: 2.4s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+
+.flake5 {
+    left: 800px;
+    -webkit-animation-duration: 2.4s;
+    animation-duration: 2.4s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.flake6 {
+    left: 1000px;
+    -webkit-animation-duration: 2.2s;
+    animation-duration: 2.2s;
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+
+.flake7 {
+    left: 1100px;
+    -webkit-animation-duration: 2.7s;
+    animation-duration: 2.7s;
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+
+.flake8 {
+    left: 1400px;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+}
+
+.flake9 {
+    left: 500px;
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.flake10 {
+    left: 1050px;
+    -webkit-animation-duration: 2.3s;
+    animation-duration: 2.3s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.flake11 {
+    left: 850px;
+    -webkit-animation-duration: 2.6s;
+    animation-duration: 2.6s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.flake12 {
+    left: 950px;
+    -webkit-animation-duration: 2.0s;
+    animation-duration: 2.0s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.flake13 {
+    left: 1200px;
+    -webkit-animation-duration: 2.0s;
+    animation-duration: 2.0s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes Drop {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    50% {
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes Drop {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    50% {
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        opacity: 0.3;
+    }
+}
+
