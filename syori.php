@@ -27,17 +27,22 @@ try{
       $re = $s->query("select * from tbk order by bang");
       break;
     case "ins":
-      $a1_d = $_POST["a1"];
-      $a2_d = $_POST["a2"];
-      $s->query("insert into tbk(nama, mess) values('$a1_d', '$a2_d')");
-      $re = $s->query("select * from tbk order by bang");
+      $ins_id = $_POST["id"];
+      $ins_name = $_POST["name"];
+      $ins_ing = $_POST["ing"];
+      $ins_amount = $_POST["amount"];
+      $ins_author = $_POST["author"];
+      $ins_image = $_POST["image"];
+      $ins_data = $_POST["data"];
+      $s->query("insert into osusowake(id, name, ing, amount, author, image, data) values('$ins_id', '$ins_name', "$ins_ing", "ins_amount", "ins_author", "ins_image", "ins_data")");
+      $re = $s->query("select * from osusowake order by id");
       break;
     case "del":
-      $b1_d = $_POST["b1"];
-      if(preg_match("/^[0-9]+$/", $b1_d)){
-        $s->query("delete from tbk where bang=$b1_d");
+      $del_id = $_POST["id"];
+      if(preg_match("/^[0-9]+$/", $del_id)){
+        $s->query("delete from osusowake where id=$del_id");
       }
-      $re = $s->query("select * from tbk order by bang");
+      $re = $s->query("select * from osusowake order by id");
       break;
     case "ser":
       $c1_d = $_POST["c1"];
