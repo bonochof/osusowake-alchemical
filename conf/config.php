@@ -1,9 +1,9 @@
 <?php
 
 $SERV = "localhost";
-$DBNM = "DB_osusowake";
+$DBNM = "osusowake";
 $USER = "osusowake";
-$PASS = "";
+$PASS = "alchemical";
 $SESSID = "osusowake";
 $SESSPWD = "alchemical";
 
