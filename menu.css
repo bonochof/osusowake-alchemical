@@ -344,7 +344,7 @@ section .inner div {
     display: block;
     width: 50px;
     height: 50px;
-    background: url("img01.png") no-repeat;
+    background: url("images/img01.png") no-repeat;
 }
 section .inner2 div {
     opacity: 0;
@@ -365,7 +365,7 @@ section .inner2 div {
     display: block;
     width: 50px;
     height: 50px;
-    background: url("img09.png") no-repeat;
+    background: url("images/img09.png") no-repeat;
 }
 #sakura .inner div.flake1,
 #sakura .inner div.flake3,

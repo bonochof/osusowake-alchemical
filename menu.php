@@ -19,16 +19,16 @@ EOH;
 echo $head;
 echo "<body>";
 echo "<p><a href='menu.php' class='menu_back'>";
-echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
 echo "</a></p>";
 // ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
-  echo "<input type='image' src='login.png' class='btn_black'>";
+  echo "<input type='image' src='images/login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='logout.png' class='btn_black'>";
+  echo "<input type='image' src='images/logout.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p></div>";
@@ -67,7 +67,7 @@ try {
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
     echo "<div align='center' class = 'menu'>";
-    echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
+    echo "<img src='images/img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
     if (isset($_SESSION["login"])) {
       echo "<p><form method='POST' action='syori.php'>";
       echo "<div class='textbox'><input type='text' name='id'></div>";
