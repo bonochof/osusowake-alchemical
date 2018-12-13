@@ -18,6 +18,7 @@ $head = <<<EOH
 EOH;
 echo $head;
 echo "<body>";
+// ロゴ
 echo "<p><a href='menu.php' class='menu_back'>";
 echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
 echo "</a></p>";
@@ -40,19 +41,21 @@ try {
   $page = $_POST["h"];
   // ページ分岐
   switch("$page") {
-  case "insert": // メニュー登録フォームページ
+  case "insert":   // メニュー登録フォームページ
     break;
   case "DBinsert": // メニュー登録完了ページ
-    $ins_id = $_POST["id"];
-    $ins_name = $_POST["name"];
-    $ins_ing = $_POST["ing"];
-    $ins_amount = $_POST["amount"];
-    $ins_author = $_POST["author"];
-    $ins_image = $_POST["image"];
-    $ins_data = $_POST["data"];
-    $s->query("insert into osusowake(id, name, ing, amount, author, image, data) values('$ins_id', '$ins_name', '$ins_ing', 'ins_amount', 'ins_author', 'ins_image', 'ins_data')");
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $ing = $_POST["ing"];
+    $amount = $_POST["amount"];
+    $author = $_POST["author"];
+    $image = $_POST["image"];
+    $data = $_POST["data"];
+    $s->query("insert into osusowake(id, name, ing, amount, author, image, data) values('$id', '$name', '$ing', 'amount', 'author', 'image', 'data')");
     $re = $s->query("select * from osusowake order by id");
-  case "delete": // メニュー削除ページ
+    break;
+  case "delete":   // メニュー削除ページ
+    break;
   case "DBdelete": //メニュー削除完了ページ
     $del_id = $_POST["id"];
     if (preg_match("/^[0-9]+$/", $del_id)) {
@@ -60,9 +63,9 @@ try {
     }
     $re = $s->query("select * from osusowake order by id");
     break;
-  case "search": //メニュー検索ページ
+  case "DBsearch": //メニュー検索ページ
     break;
-  default: // メニュー表示ページ
+  default:         // メニュー表示ページ
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
