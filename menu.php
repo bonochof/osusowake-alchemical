@@ -17,10 +17,9 @@ $head = <<<EOH
 EOH;
 echo $head;
 echo "<body>";
-//echo "<p><h1>おすそわけ錬金術</h1></p>";
-echo "<a href='menu.php' class='menu_back'>";
+echo "<p><a href='menu.php' class='menu_back'>";
 echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
-echo "</a>";
+echo "</a></p>";
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if(empty($_SESSION["login"])){
   echo "<input type='image' src='login.png' class='btn_black'>";
@@ -75,7 +74,12 @@ if(empty($_SESSION["login"])){
 echo "<div align='center' class = 'menu'>";
 echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
 if(isset($_SESSION["login"])){
-  echo "<input type='image' value='削除' class='delete' align='right'>";}
+  echo "<p><form method='POST' action='syori.php'>";
+  echo "<div class='textbox'><input type='text' name='id'></div>";
+  echo "<input type='image' value='削除' class='delete' align='right'>";
+  echo "<input type='hidden' name='h' value='del'>";
+  echo "</form></p>";
+}
 echo "</div>";
 echo "<section id='sakura'>";
 echo "<div class='inner'>";
