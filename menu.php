@@ -2,6 +2,7 @@
 
 <?php
 session_start();
+require_once("conf/config.php");
 echo "<html>";
 $head = <<<EOH
 <head>
@@ -20,67 +21,64 @@ echo "<body>";
 echo "<p><a href='menu.php' class='menu_back'>";
 echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
 echo "</a></p>";
+// ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
-if(empty($_SESSION["login"])){
+if (empty($_SESSION["login"])) {
   echo "<input type='image' src='login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
-}
-else{
+} else {
   echo $_SESSION["login"]." さん こんにちは";
   echo "<input type='image' src='logout.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p></div>";
-echo "<p><form method='POST' action='syori.php'>";
-/*echo "<input type='image' value='メッセージ表示' class='btn_blue'>";*/
-echo "<input type='hidden' name='h' value='sel'>";
-echo "</form></p>";
 
-/*if(empty($_SESSION["login"])){
-  echo "<p>メッセージを送信するにはログインしてください</p>";
+try {
+  // DB接続
+  $s = new PDO("mysql:host=".$SERV.";dbname=".$DBNM.";charset=utf8", $USER, $PASS);
+  // ページ分岐用変数
+  $page = $_POST["h"];
+  // ページ分岐
+  switch("$page") {
+  case "insert": // メニュー登録フォームページ
+  case "DBinsert": // メニュー登録完了ページ
+    $ins_id = $_POST["id"];
+    $ins_name = $_POST["name"];
+    $ins_ing = $_POST["ing"];
+    $ins_amount = $_POST["amount"];
+    $ins_author = $_POST["author"];
+    $ins_image = $_POST["image"];
+    $ins_data = $_POST["data"];
+    $s->query("insert into osusowake(id, name, ing, amount, author, image, data) values('$ins_id', '$ins_name', '$ins_ing', 'ins_amount', 'ins_author', 'ins_image', 'ins_data')");
+    $re = $s->query("select * from osusowake order by id");
+  case "delete": // メニュー削除ページ
+  case "DBdelete": //メニュー削除完了ページ
+    $del_id = $_POST["id"];
+    if (preg_match("/^[0-9]+$/", $del_id)) {
+      $s->query("delete from osusowake where id=$del_id");
+    }
+    $re = $s->query("select * from osusowake order by id");
+  case "search": //メニュー検索ページ
+  default: // メニュー表示ページ
+    echo "<p><form method='POST' action='menu.php'>";
+    echo "<input type='hidden' name='h' value='search'>";
+    echo "</form></p>";
+    echo "<div align='center' class = 'menu'>";
+    echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
+    if (isset($_SESSION["login"])) {
+      echo "<p><form method='POST' action='syori.php'>";
+      echo "<div class='textbox'><input type='text' name='id'></div>";
+      echo "<input type='image' value='削除' class='delete' align='right'>";
+      echo "<input type='hidden' name='h' value='del'>";
+      echo "</form></p>";
+    }
+    echo "</div>";
+  }
+} catch(Exception $e) {
+  var_dump($e);
 }
-else{
-  echo "<p><form method='POST' action='syori.php'>";
-  echo "<div>名前　<input type='text' name='a1'></div>";
-  echo "<div class='textbox'>メッセージ　<input type='text' name='a2' size=150></div>";
-  echo "<input type='image' value='メッセージ送信' class='btn_blue'>";
-  echo "<input type='hidden' name='h' value='ins'>";
-  echo "</form></p>";
-}*/
-/*echo "<hr>";
-if(empty($_SESSION["login"])){
-  echo "<p>メッセージを削除するにはログインしてください</p>";
-}else{
-  echo "<p><form method='POST' action='syori.php'>";
-  echo "<div class='textbox'><input type='text' name='b1'></div>";
-  echo "<input type='image' value='指定番号削除' class='btn_blue'>";
-  echo "<input type='hidden' name='h' value='del'>";
-  echo "</form></p>";
-}*/
 
-//echo "<hr>";
-//echo "<p><form method='POST' action='syori.php'>";
-//echo "<div class='textbox'><input type='text' name='c1'></div>";
-//echo "<input type='radio' name='c2' value='and' checked>AND <input type='radio' name='c2' value='or'>OR<br>";
-//echo "<input type='image' value='キーワード検索' class='btn_blue'>";
-//echo "<input type='hidden' name='h' value='ser'>";
-//echo "</form></p>";
-//echo "<hr>";
-//echo "<p><form method='POST' action='syori.php'>";
-//echo "<input type='image' value='テーブル再構築' class='btn_red'>";
-//echo "<input type='hidden' name='h' value='reb'>";
-//echo "</form></p>";
-
-echo "<div align='center' class = 'menu'>";
-echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
-if(isset($_SESSION["login"])){
-  echo "<p><form method='POST' action='syori.php'>";
-  echo "<div class='textbox'><input type='text' name='id'></div>";
-  echo "<input type='image' value='削除' class='delete' align='right'>";
-  echo "<input type='hidden' name='h' value='del'>";
-  echo "</form></p>";
-}
-echo "</div>";
+// クリスマス仕様
 echo "<section id='sakura'>";
 echo "<div class='inner'>";
 echo "<div class='flake1'></div>";
