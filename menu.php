@@ -41,6 +41,7 @@ try {
   // ページ分岐
   switch("$page") {
   case "insert": // メニュー登録フォームページ
+    break;
   case "DBinsert": // メニュー登録完了ページ
     $ins_id = $_POST["id"];
     $ins_name = $_POST["name"];
@@ -58,7 +59,9 @@ try {
       $s->query("delete from osusowake where id=$del_id");
     }
     $re = $s->query("select * from osusowake order by id");
+    break;
   case "search": //メニュー検索ページ
+    break;
   default: // メニュー表示ページ
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
@@ -73,6 +76,7 @@ try {
       echo "</form></p>";
     }
     echo "</div>";
+    break;
   }
 } catch(Exception $e) {
   var_dump($e);
