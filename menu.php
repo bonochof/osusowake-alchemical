@@ -42,28 +42,41 @@ try {
   // ページ分岐
   switch("$page") {
   case "insert":   // メニュー登録フォームページ
+    echo "<p><form method='post' action='menu.php'>";
+    echo "<input type = 'text' name='menu_name'>";
+    echo "<input type = 'text' name='menu_ing'>";
+    echo "<input type = 'text' name='menu_amount'>";
+    echo "<input type = 'text' name='menu_author'>";
+    echo "<input type = 'text' name='menu_image'>";
+    echo "<input type = 'text' name='menu_date'>";
+    echo "<input type = 'submit' name='menu_insert' value='DBinsert'>";
+    echo "<input type='hidden' name='h' value='DBinsert'>"; //move to DBinsert
+    echo "</form></p>";
     break;
   case "DBinsert": // メニュー登録完了ページ
-    $id = $_POST["id"];
-    $name = $_POST["name"];
-    $ing = $_POST["ing"];
-    $amount = $_POST["amount"];
-    $author = $_POST["author"];
-    $image = $_POST["image"];
-    $data = $_POST["data"];
-    $s->query("insert into osusowake(id, name, ing, amount, author, image, data) values('$id', '$name', '$ing', 'amount', 'author', 'image', 'data')");
-    $re = $s->query("select * from osusowake order by id");
+    $get_id = $s->query("select id from menu order by id desc limit 1");
+    $lately_id = $get_id->fetch();
+    $ins_id = $lately_id["id"]+1;
+    $ins_name = $_POST["menu_name"];
+    $ins_ing = $_POST["menu_ing"];
+    $ins_amount = $_POST["menu_amount"];
+    $ins_author = $_POST["menu_author"];
+    $ins_image = $_POST["menu_image"];
+    $ins_date = $_POST["menu_date"];
+    $re = $s->query("insert into menu(id, name, ing, amount, author, image, date) values($ins_id, '$ins_name', '$ins_ing', $ins_amount, '$ins_author', '$ins_image', '$ins_date')");
     break;
   case "delete":   // メニュー削除ページ
     break;
   case "DBdelete": //メニュー削除完了ページ
-    $del_id = $_POST["id"];
+    $del_id = $_POST["menu_id"];
     if (preg_match("/^[0-9]+$/", $del_id)) {
       $s->query("delete from osusowake where id=$del_id");
     }
-    $re = $s->query("select * from osusowake order by id");
+    $re = $s->query("select * from osusowake order by menu_id");
     break;
-  case "DBsearch": //メニュー検索ページ
+  case "search": //メニュー検索ページ
+    break;
+  case "DBsearch": // メニュー検索完了ページ
     break;
   default:         // メニュー表示ページ
     echo "<p><form method='POST' action='menu.php'>";
@@ -72,17 +85,25 @@ try {
     echo "<div align='center' class = 'menu'>";
     echo "<img src='images/img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
     if (isset($_SESSION["login"])) {
-      echo "<p><form method='POST' action='syori.php'>";
+      echo "<p><form method='POST' action='menu.php'>";
       echo "<div class='textbox'><input type='text' name='id'></div>";
       echo "<input type='image' value='削除' class='delete' align='right'>";
-      echo "<input type='hidden' name='h' value='del'>";
+      echo "<input type='hidden' name='h' value='delete'>";
       echo "</form></p>";
+      echo "<p><form method='POST' action='menu.php'>";
+      echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
+      echo "<input type='hidden' name='h' value='insert'>";
+      echo "</form></p>";
+     /* echo "<p><form method='POST' action='menu.php'>";
+      echo "<div class='textbox'><input type='image' value='ser' class='search' align='right'></div>";
+      echo "<input type='hidden' name='h' value='search'>";
+      echo "</form></p>";*/
     }
     echo "</div>";
     break;
   }
 } catch(Exception $e) {
-  var_dump($e);
+  var_dump($e);  
 }
 
 // クリスマス仕様
