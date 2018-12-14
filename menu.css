@@ -18,6 +18,24 @@ div.logo{
 	
 }
 
+
+.demo01 {
+    background: url("logo_out.png") no-repeat; /* ロールオーバー時のチラつき防止 */
+	width:50x;
+	height:50px;
+	
+}
+ 
+.demo01 a {
+    background: url("logo_out.png") no-repeat;
+    display:block;
+    text-indent:-9999px;
+}
+ 
+.demo01 a:hover {
+    background-image: url("logo_over.png");
+}
+
 div.right{
   position: relative;
   left: 200px;
@@ -29,10 +47,7 @@ div.textbox{
 }
 
 table.login{
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 20px;
+  text-align:center;
 }
 
 /*おすそわけ錬金術*/
@@ -310,16 +325,17 @@ table.chat{
 	padding: 5px;
 }
 
-div.menu{
+p.menu{
 	width:1200px;
 	height:500px;
 	background-color:#fff;
 	position:relative;
-  top:220px;
-  font-size:16px;
-  font-weight:bold;
-  font-family:"ＤＦロマン雪W9",fantasy;
-  margin-left: auto;
+	top:0px;
+	bottom:500px;
+    font-size:16px;
+    font-weight:bold;
+    font-family:"ＤＦロマン雪W9",fantasy;
+	margin-left: auto;
 	margin-right: auto;
 }
 
@@ -339,11 +355,12 @@ section .inner div {
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
-#sakura .inner div {
+section#snow .inner div {
     position: absolute;
     display: block;
     width: 50px;
     height: 50px;
+    bottom: 10px;
     background: url("images/img01.png") no-repeat;
 }
 section .inner2 div {
@@ -360,31 +377,32 @@ section .inner2 div {
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
-#sakura .inner2 div {
+#snow .inner2 div {
     position: absolute;
     display: block;
     width: 50px;
     height: 50px;
+    bottom: 10px;
     background: url("images/img09.png") no-repeat;
 }
-#sakura .inner div.flake1,
-#sakura .inner div.flake3,
-#sakura .inner div.flake5,
-#sakura .inner div.flake9{
+#snow .inner div.flake1,
+#snow .inner div.flake3,
+#snow .inner div.flake5,
+#snow .inner div.flake9{
     background-size: 10px 10px !important;
 }
 
-#sakura .inner div.flake2,
-#sakura .inner div.flake4,
-#sakura .inner div.flake6,
-#sakura .inner div.flake8 {
+#snow .inner div.flake2,
+#snow .inner div.flake4,
+#snow .inner div.flake6,
+#snow .inner div.flake8 {
     background-size: 10px 10px !important;
 }
-#sakura .inner2 div.flake9,
-#sakura .inner2 div.flake10,
-#sakura .inner2 div.flake11,
-#sakura .inner2 div.flake12, 
-#sakura .inner2 div.flake13{
+#snow .inner2 div.flake9,
+#snow .inner2 div.flake10,
+#snow .inner2 div.flake11,
+#snow .inner2 div.flake12, 
+#snow .inner2 div.flake13{
     background-size: 10px 10px !important;
 }
 
@@ -495,40 +513,40 @@ section .inner2 div {
 
 @-webkit-keyframes Drop {
     0% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
         opacity: 0;
     }
 
     50% {
-        -webkit-transform: translateY(50px);
-        transform: translateY(50px);
+        -webkit-transform: translateY(-50px);
+        transform: translateY(-50px);
         opacity: 1;
     }
 
     100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
         opacity: 0.3;
     }
 }
 
 @keyframes Drop {
     0% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
         opacity: 0;
     }
 
     50% {
-        -webkit-transform: translateY(50px);
-        transform: translateY(50px);
+        -webkit-transform: translateY(-50px);
+        transform: translateY(-50px);
         opacity: 1;
     }
 
     100% {
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
         opacity: 0.3;
     }
 }
