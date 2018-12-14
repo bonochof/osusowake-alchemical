@@ -18,9 +18,16 @@ EOH;
 echo $head;
 echo "<body>";
 //echo "<p><h1>おすそわけ錬金術</h1></p>";
-echo "<a href='menu.php' class='menu_back'>";
-echo "<img src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
-echo "</a>";
+//echo "<a href='menu.php' class='home'>";
+//echo "<a  src='logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left' top='-10'>";
+//echo "<img src='img01.png' onmouseover='this.src='img09.png'' onmouseout='this.src='img01.png''>";
+//echo "</a>";
+
+echo "<div class='demo01'>";
+echo	"<a href='menu.php'></a>";
+echo "</div>";
+
+
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if(empty($_SESSION["login"])){
   echo "<input type='image' src='login.png' class='btn_black'>";
@@ -72,12 +79,14 @@ if(empty($_SESSION["login"])){
 //echo "<input type='hidden' name='h' value='reb'>";
 //echo "</form></p>";
 
-echo "<div align='center' class = 'menu'>";
+echo "<p align='center' class = 'menu'>";
 echo "<img src='img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
 if(isset($_SESSION["login"])){
-  echo "<input type='image' value='削除' class='delete' align='right'>";}
-echo "</div>";
-echo "<section id='sakura'>";
+  echo "<input type='image' value='削除' class='delete' align='left' bottom='30'>";}
+echo "</p>";
+echo "<p></p><p></p>";
+//echo "<p>":
+echo "<section id='snow'>";
 echo "<div class='inner'>";
 echo "<div class='flake1'></div>";
 echo "<div class='flake2'></div>";
@@ -95,6 +104,7 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
+//echo "</p>":
 
 echo "</body>";
 echo "</html>";
