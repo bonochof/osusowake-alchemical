@@ -361,7 +361,7 @@ section#snow .inner div {
     width: 50px;
     height: 50px;
     bottom: 10px;
-    background: url("img01.png") no-repeat;
+    background: url("images/img01.png") no-repeat;
 }
 section .inner2 div {
     opacity: 0;
@@ -383,7 +383,7 @@ section .inner2 div {
     width: 50px;
     height: 50px;
     bottom: 10px;
-    background: url("img09.png") no-repeat;
+    background: url("images/img09.png") no-repeat;
 }
 #snow .inner div.flake1,
 #snow .inner div.flake3,
