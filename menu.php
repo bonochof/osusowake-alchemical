@@ -19,14 +19,14 @@ EOH;
 echo $head;
 echo "<body>";
 
-echo "<div class='demo01'>";
-echo	"<a href='menu.php'></a>";
-echo "</div>";
+//echo "<div class='demo01'>";
+//echo	"<a href='menu.php'></a>";
+//echo "</div>";
 
 // ロゴ
-//echo "<p><a href='menu.php' class='menu_back'>";
-//echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
-//echo "</a></p>";
+echo "<p><a href='menu.php' class='menu_back'>";
+echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "</a></p>";
 // ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
