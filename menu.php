@@ -48,14 +48,14 @@ try {
   switch("$page") {
   case "insert":   // メニュー登録フォームページ
     echo "<p><form method='post' action='menu.php'>";
-    echo "<input type = 'text' name='menu_name'>";
-    echo "<input type = 'text' name='menu_ing'>";
-    echo "<input type = 'text' name='menu_amount'>";
-    echo "<input type = 'text' name='menu_author'>";
-    echo "<input type = 'text' name='menu_image'>";
-    echo "<input type = 'text' name='menu_date'>";
-    echo "<input type = 'submit' name='menu_insert' value='DBinsert'>";
-    echo "<input type='hidden' name='h' value='DBinsert'>"; //move to DBinsert
+    echo "<table>";
+    echo "<tr><td>メニュー名</td><td><input type='text' name='menu_name'></td></tr>";
+    echo "<tr><td>材料</td><td><input type='text' name='menu_ing'></td></tr>";
+    echo "<tr><td>量(何人前)</td><td><input type='text' name='menu_amount'></td></tr>";
+    echo "<tr><td>画像</td><td><input type='file' name='menu_image'></td></tr>";
+    echo "</table>";
+    echo "<input type='submit' name='menu_insert' value='登録'>";
+    echo "<input type='hidden' name='h' value='DBinsert'>";
     echo "</form></p>";
     break;
   case "DBinsert": // メニュー登録完了ページ
@@ -65,10 +65,11 @@ try {
     $ins_name = $_POST["menu_name"];
     $ins_ing = $_POST["menu_ing"];
     $ins_amount = $_POST["menu_amount"];
-    $ins_author = $_POST["menu_author"];
+    $ins_author = $_SESSION["login"];
     $ins_image = $_POST["menu_image"];
-    $ins_date = $_POST["menu_date"];
+    $ins_date = date("Y-m-d H:i:s");
     $re = $s->query("insert into menu(id, name, ing, amount, author, image, date) values($ins_id, '$ins_name', '$ins_ing', $ins_amount, '$ins_author', '$ins_image', '$ins_date')");
+    echo "<p>メニューを登録しました</p>";
     break;
   case "delete":   // メニュー削除ページ
     break;
