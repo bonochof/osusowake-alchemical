@@ -19,22 +19,19 @@ EOH;
 echo $head;
 echo "<body>";
 
-
-
 // ロゴ
 echo "<div class='logo'><a href='menu.php'>";
-echo "<img src='images/logo_over.png'　 width='500px' height='200px'　>";
-
+echo "<img src='images/logo_over.png' width='500px' height='200px'>";
 echo "</a></div>";
 
 // ログイン/ログアウト
 echo "<div class='door'><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
-  echo "<input type='image' src='images/login.png'  width='80px' height='80px' >";
+  echo "<input type='image' src='images/login.png' width='80px' height='80px' >";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='images/logout.png'  width='80px' height='80px'>";
+  echo "<input type='image' src='images/logout.png' width='80px' height='80px'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></div>";
@@ -111,7 +108,7 @@ try {
       echo "</table></p>";
     }
     break;
-  case receive:
+  case "receive":
     $r_id = $_POST["receive_id"];
     $s->query("delete from menu where id=$r_id");
     echo "<p>おすそわけされました</p>";
@@ -129,15 +126,15 @@ try {
       echo "</form></p>";
     }
     // 検索
-    echo "<p><form method='POST' action='menu.php'>";
+    echo "<div class='center'><form method='POST' action='menu.php'>";
     echo "<table class='ser'>";
     echo "<tr><td>検索欄</td><td><input type='text' name='search_word'></td></tr>";
     echo "<tr><td>and</td><td><input type='radio' name='search_type' value='and' checked='checked'></td></tr>";
     echo "<tr><td>or</td><td><input type='radio' name='search_type' value='or'></td></tr>";
     echo "</table>";
-    echo "<input type ='submit' value = 'search'>";
+    echo "<input type ='submit' value = 'search' class='ser'>";
     echo "<input type='hidden' name='h' value='search'>";
-    echo "</form></p>";
+    echo "</form></div>";
     // DBからID取得
     $re = $s->query("select id from menu");
     $ids = $re->fetchAll();
@@ -169,11 +166,12 @@ try {
       }
       echo "</table>";
       //if (isset($_SESSION["login"]) {
+        echo "<div class='center'>";
         echo "<form method='POST' action='menu.php'>";
         echo "<input type='submit' value='もらう'>";
         echo "<input type='hidden' name='h' value='receive'>";
         echo "<input type='hidden' name='receive_id' value='$sid'>";
-        echo "</form>";
+        echo "</form></div>";
       //}
       echo "</p>";
     }
