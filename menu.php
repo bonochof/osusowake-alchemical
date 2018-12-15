@@ -163,9 +163,9 @@ try {
         echo "<input type='hidden' name='h' value='delete'>";
         echo "<input type='hidden' name='delete_id' value='$sid'>";
         echo "</form></td></tr>";
-        echo "<div class='track'><a href='dammy.html'>";
-        echo "<img src='images/link_track.png' width='200px' height='200px'>";
-        echo "</a></div>";
+        echo "<tr><td><div class='track'><a href='dammy.html'>";
+        echo "<img src='images/link_track.png' width='100px' height='100px'>";
+        echo "</a></td></tr></div>";
       }
       echo "</table>";
       //if (isset($_SESSION["login"]) {
