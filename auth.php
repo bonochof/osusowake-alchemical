@@ -16,8 +16,9 @@ $head = <<<EOH
 EOH;
 echo $head;
 echo "<body>";
+// ロゴ
 echo "<p><a href='menu.php' class='menu_back'>";
-echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "<img src='images/logo.png' class='logo'>";
 echo "</a></p>";
 $h_d = $_POST["h"];
 echo "<form method='POST' action='auth.php'>";
@@ -34,7 +35,7 @@ case "judge":
 case "login":
   echo "<table class='login'><tr><td>ID</td><td><input type='text' name='id'></td></tr>";
   echo "<tr><td>パスワード</td><td><input type='password' name='pwd'></td></tr></table>";
-  echo "<input type='image' value='ログイン' class='btn'>";
+  echo "<input type='submit' value='ログイン' class='btn'>";
   echo "<input type='hidden' name='h' value='judge'>";
   break;
 case "logout":
