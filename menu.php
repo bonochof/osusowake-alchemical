@@ -102,9 +102,23 @@ try {
       $query .= "(name like '%$words[$i]%' or ing like '%$words[$i]%' or amount like '%$words[$i]%' or author like '%$words[$i]%' or date like '%$words[$i]%') ";
     }
     $query .= "order by id";
-    $result = $s->query($query);
-   // var_dump("$query");
-    var_dump($result->fetchAll());
+    $re = $s->query($query);
+    $ids = $re->fetchAll();
+    for ($i = 0; $i  < count($ids); $i++) {
+      $name = $ids[$i]["name"];
+      $ing = $ids[$i]["ing"];
+      $amount = $ids[$i]["amount"];
+      $author = $ids[$i]["author"];
+      $image = $ids[$i]["image"];
+      $date = $ids[$i]["date"];
+      echo "<p class='menu'><table>";
+      echo "<tr><th class='name'>$name</th></tr>";
+      echo"<tr><td>材料 $ing</td></td>";
+      echo"<tr><td>$amount 人分</td></td>";
+      echo"<tr><td>作成者 $author</td></td>";
+      echo"<tr><td>作成日時 $date</td></td>";
+      echo "</table></p>";
+    }
     break;
   default:         // メニュー表示ページ
     $re = $s->query("select id from menu");
@@ -148,9 +162,11 @@ try {
       echo "<input type='hidden' name='h' value='insert'>";
       echo "</form></p>";
       echo "<p><form method='POST' action='menu.php'>";
-      echo "<input type='text' name='search_word'>";
-      echo "<input type='radio' name='search_type' value='and' checked='checked'>";
-      echo "<input type='radio' name='search_type' value='or'>";
+      echo "<table>";
+      echo "<tr><td>検索欄</td><td><input type='text' name='search_word'></td></tr>";
+      echo "<tr><td>and</td><td><input type='radio' name='search_type' value='and' checked='checked'></td></tr>";
+      echo "<tr><td>or</td><td><input type='radio' name='search_type' value='or'></td></tr>";
+      echo "</table>";
       echo "<input type ='submit' value = 'search'>";
       echo "<input type='hidden' name='h' value='search'>";
       echo "</form></p>";
