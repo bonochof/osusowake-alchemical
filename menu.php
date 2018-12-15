@@ -163,6 +163,9 @@ try {
         echo "<input type='hidden' name='h' value='delete'>";
         echo "<input type='hidden' name='delete_id' value='$sid'>";
         echo "</form></td></tr>";
+        echo "<div class='track'><a href='dammy.html'>";
+        echo "<img src='images/link_track.png' width='200px' height='200px'>";
+        echo "</a></div>";
       }
       echo "</table>";
       //if (isset($_SESSION["login"]) {
@@ -203,9 +206,7 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-echo "<div  class='track'><a href='dammy.html'>";
-echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
-echo "</a></div>";
+
 echo "</body>";
 echo "</html>";
 ?>
