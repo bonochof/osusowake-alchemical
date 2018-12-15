@@ -2,6 +2,11 @@ body{
   background: #D9E5FF;
   font-family: "Meiryo";
   text-align: center;
+  background-image:url("images/city.png");
+ background-repeat:repeat-x ;
+ background-position:top;
+ background-size:600px;
+ 
 }
 
 p.title{
@@ -19,22 +24,6 @@ div.logo{
 }
 
 
-.demo01 {
-    background: url("logo_out.png") no-repeat; /* ロールオーバー時のチラつき防止 */
-	width:50x;
-	height:50px;
-	
-}
- 
-.demo01 a {
-    background: url("logo_out.png") no-repeat;
-    display:block;
-    text-indent:-9999px;
-}
- 
-.demo01 a:hover {
-    background-image: url("logo_over.png");
-}
 
 div.right{
   position: relative;
@@ -47,17 +36,44 @@ div.textbox{
 }
 
 table.login{
-  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/*おすそわけ錬金術*/
+/*おすそわけ錬金術
 .menu_back{
   color: #158b2b;
   font-size: 40px;
   padding: 10px 0;
   text-align: left;
   margin: 1.5em 0;
+}*/
+/*
+.menu_back{
+    background: url("images/logo_over.png") no-repeat;
+    width: 500px;
+    height: 200px;
 }
+.menu_back a{
+    display: block;
+}
+.menu_back img{
+    border: none;
+}
+.menu_back a:hover{
+    background: none;
+}
+.menu_back a:hover img{
+    visibility: hidden;
+}
+*/
+.track {
+	position:absolute;
+	bottom:0px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 /*装飾*/
 h1:before{
   content: "";
@@ -81,10 +97,12 @@ input.red{
 }
 
 .btn_black{
+position:relative;
  height:80px;
  width:80px;
- top:0px;
+ top:150px;
 }
+
 
 .btn{
 position:relative;
@@ -325,20 +343,27 @@ table.chat{
 	padding: 5px;
 }
 
-p.menu{
+
+div.menu{
 	width:1200px;
 	height:500px;
 	background-color:#fff;
-	position:relative;
-	top:0px;
-	bottom:500px;
+	//position:relative;
+	//top:500px;
+	//bottom:500px;
     font-size:16px;
     font-weight:bold;
     font-family:"ＤＦロマン雪W9",fantasy;
 	margin-left: auto;
 	margin-right: auto;
 }
-
+.menu img{
+	position:absolute;
+	width:300px;
+	height:300px;
+	left:10px;
+	top:100px;
+}
 
 
 section .inner div {
@@ -358,9 +383,9 @@ section .inner div {
 section#snow .inner div {
     position: absolute;
     display: block;
-    width: 50px;
-    height: 50px;
-    bottom: 10px;
+    width: 70px;
+    height: 70px;
+    top: 0px;
     background: url("images/img01.png") no-repeat;
 }
 section .inner2 div {
@@ -380,9 +405,9 @@ section .inner2 div {
 #snow .inner2 div {
     position: absolute;
     display: block;
-    width: 50px;
-    height: 50px;
-    bottom: 10px;
+    width: 100px;
+    height: 100px;
+    top: 0px;
     background: url("images/img09.png") no-repeat;
 }
 #snow .inner div.flake1,
@@ -513,41 +538,53 @@ section .inner2 div {
 
 @-webkit-keyframes Drop {
     0% {
-        -webkit-transform: translateY(-100px);
-        transform: translateY(-100px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
         opacity: 0;
     }
 
     50% {
-        -webkit-transform: translateY(-50px);
-        transform: translateY(-50px);
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
         opacity: 1;
     }
 
     100% {
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
         opacity: 0.3;
     }
 }
 
 @keyframes Drop {
     0% {
-        -webkit-transform: translateY(-100px);
-        transform: translateY(-100px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
         opacity: 0;
     }
 
     50% {
-        -webkit-transform: translateY(-50px);
-        transform: translateY(-50px);
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
         opacity: 1;
     }
 
     100% {
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
         opacity: 0.3;
     }
 }
 
+.name {
+  font-size:30px;
+}
+
+.logo {
+  width: 500px;
+  height: 200px;
+}
+
+.delete {
+  text-color: red;
+}

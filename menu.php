@@ -24,17 +24,23 @@ echo "<body>";
 //echo "</div>";
 
 // ロゴ
-echo "<p><a href='menu.php' class='menu_back'>";
-echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "<p><a href='menu.php'>";
+echo "<img src='images/logo.png' class='logo'>";
+//$over="images/logo_over.png";
+//$out="images/logo_out.png";
+//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src=images/logo_over.png' onmouseout='this.src=images/logo_out.png'>";
+//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src='.$over onmouseout='this.src='.$out>";
 echo "</a></p>";
+
 // ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
   echo "<input type='image' src='images/login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
+
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='images/logout.png' class='btn_black'>";
+  echo "<input type='image' src='images/logout.png' class='btn_black' >";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p></div>";
@@ -48,14 +54,14 @@ try {
   switch("$page") {
   case "insert":   // メニュー登録フォームページ
     echo "<p><form method='post' action='menu.php'>";
-    echo "<input type = 'text' name='menu_name'>";
-    echo "<input type = 'text' name='menu_ing'>";
-    echo "<input type = 'text' name='menu_amount'>";
-    echo "<input type = 'text' name='menu_author'>";
-    echo "<input type = 'text' name='menu_image'>";
-    echo "<input type = 'text' name='menu_date'>";
-    echo "<input type = 'submit' name='menu_insert' value='DBinsert'>";
-    echo "<input type='hidden' name='h' value='DBinsert'>"; //move to DBinsert
+    echo "<table>";
+    echo "<tr><td>メニュー名</td><td><input type='text' name='menu_name'></td></tr>";
+    echo "<tr><td>材料</td><td><input type='text' name='menu_ing'></td></tr>";
+    echo "<tr><td>量(何人前)</td><td><input type='text' name='menu_amount'></td></tr>";
+    echo "<tr><td>画像</td><td><input type='file' name='menu_image'></td></tr>";
+    echo "</table>";
+    echo "<input type='submit' name='menu_insert' value='登録'>";
+    echo "<input type='hidden' name='h' value='DBinsert'>";
     echo "</form></p>";
     break;
   case "DBinsert": // メニュー登録完了ページ
@@ -65,10 +71,11 @@ try {
     $ins_name = $_POST["menu_name"];
     $ins_ing = $_POST["menu_ing"];
     $ins_amount = $_POST["menu_amount"];
-    $ins_author = $_POST["menu_author"];
+    $ins_author = $_SESSION["login"];
     $ins_image = $_POST["menu_image"];
-    $ins_date = $_POST["menu_date"];
+    $ins_date = date("Y-m-d H:i:s");
     $re = $s->query("insert into menu(id, name, ing, amount, author, image, date) values($ins_id, '$ins_name', '$ins_ing', $ins_amount, '$ins_author', '$ins_image', '$ins_date')");
+    echo "<p>メニューを登録しました</p>";
     break;
   case "delete":   // メニュー削除ページ
     break;
@@ -100,17 +107,42 @@ try {
     var_dump($result->fetchAll());
     break;
   default:         // メニュー表示ページ
+    $re = $s->query("select id from menu");
+    $ids = $re->fetchAll();
+    for ($i = 0; $i < count($ids); $i++) {
+      $sid = $ids[$i]["id"];
+      $re = $s->query("select * from menu where id=$sid");
+      $menus = $re->fetch();
+      $name = $menus["name"];
+      $ing = $menus["ing"];
+      $amount = $menus["amount"];
+      $author = $menus["author"];
+      $image = $menus["image"];
+      $enc_image = base64_encode($image);
+      $date = $menus["date"];
+      echo "<p class='menu'><table>";
+      echo "<tr><th class='name'>$name</th></tr>";
+      echo "<tr><td><img src='data:image/png;base64', $enc_image></td></tr>";
+      echo "<tr><td>材料$ing</td></tr>";
+      echo "<tr><td>$amount 人分</td><tr>";
+      echo "<tr><td>作成者 $author</td></tr>";
+      echo "<tr><td>作成日時 $date</td><tr>";
+      if (isset($_SESSION["login"]) and $author == $_SESSION["login"]) {
+        echo "<tr><td><form method='POST' actiron='menu.php'>";
+        echo "<input type='submit' value='削除' class='delete'>";
+        echo "<input type='hidden' name='h' value='delete'>";
+        echo "</form></td></tr>";
+      }
+      echo "</table></p>";
+    }
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
+   
+    
     echo "<div align='center' class = 'menu'>";
-    echo "<img src='images/img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
+    echo "<img src='images/img01.png'>";
     if (isset($_SESSION["login"])) {
-      echo "<p><form method='POST' action='menu.php'>";
-      echo "<div class='textbox'><input type='text' name='id'></div>";
-      echo "<input type='image' value='削除' class='delete' align='right'>";
-      echo "<input type='hidden' name='h' value='delete'>";
-      echo "</form></p>";
       echo "<p><form method='POST' action='menu.php'>";
       echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
       echo "<input type='hidden' name='h' value='insert'>";
@@ -149,8 +181,9 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-//echo "</p>":
-
+echo "<p><a href='menu.php' class='track'>";
+echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
+echo "</a></p>";
 echo "</body>";
 echo "</html>";
 ?>
