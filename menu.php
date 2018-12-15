@@ -35,11 +35,11 @@ echo "</a></p>";
 // ログイン/ログアウト
 echo "<p class='door'><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
-  echo "<input type='image' src='images/login.png' class='btn_black'>";
+  echo "<input type='image' src='images/login.png'>";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='images/logout.png' class='btn_black' >";
+  echo "<input type='image' src='images/logout.png'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p>";
