@@ -56,14 +56,15 @@ table.login{
   margin-right: auto;
 }
 
-/*おすそわけ錬金術
+/*おすそわけ錬金術*/
 .menu_back{
   color: #158b2b;
   font-size: 40px;
   padding: 10px 0;
   text-align: left;
   margin: 1.5em 0;
-}*/
+}
+
 /*
 .menu_back{
     background: url("images/logo_over.png") no-repeat;
@@ -83,11 +84,10 @@ table.login{
     visibility: hidden;
 }
 */
+
 .track {
-	position:absolute;
-	bottom:0px;
-	margin-left:auto;
-	margin-right:auto;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /*装飾*/
@@ -123,50 +123,6 @@ position:relative;
 .btn{
 position:relative;
 }
-
-/*.btn_black{
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 12px 0 8px;
-  text-decoration: none;
-  color: Dimgray;
-  transition: .4s;
-}
-
-.btn_black:before{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 4px;
-  top:100%;
-  left: 0;
-  border-radius: 3px;
-  background: Dimgray;
-  transition: .2s;
-}
-
-.btn_black:after{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 4px;
-  top:0;
-  left: 0;
-  border-radius: 3px;
-  background: Dimgray;
-  transition: .2s;
-}
-
-.btn_black:hover:before{
-  top: -webkit-calc(100% - 3px);
-  top: calc(100% - 3px);
-}
-
-.btn_black:hover:after{
-  top: 3px;
-}
-*/
 
 .btn_blue{
   position: relative;
@@ -360,7 +316,7 @@ table.chat{
 }
 
 
-div.menu{
+.menu{
 	width:1200px;
 	height:500px;
 	background-color:#fff;
@@ -373,6 +329,7 @@ div.menu{
 	margin-left: auto;
 	margin-right: auto;
 }
+/*
 .menu img{
 	position:absolute;
 	width:300px;
@@ -380,6 +337,7 @@ div.menu{
 	left:10px;
 	top:100px;
 }
+*/
 
 
 section .inner div {
