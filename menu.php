@@ -26,15 +26,21 @@ echo "<body>";
 // ロゴ
 echo "<p><a href='menu.php'>";
 echo "<img src='images/logo.png' class='logo'>";
+//$over="images/logo_over.png";
+//$out="images/logo_out.png";
+//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src=images/logo_over.png' onmouseout='this.src=images/logo_out.png'>";
+//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src='.$over onmouseout='this.src='.$out>";
 echo "</a></p>";
+
 // ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
   echo "<input type='image' src='images/login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
+
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='images/logout.png' class='btn_black'>";
+  echo "<input type='image' src='images/logout.png' class='btn_black' >";
   echo "<input type='hidden' name='h' value='logout'>";
 }
 echo "</form></p></div>";
@@ -116,8 +122,10 @@ try {
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
+   
+    
     echo "<div align='center' class = 'menu'>";
-    echo "<img src='images/img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
+    echo "<img src='images/img01.png'>";
     if (isset($_SESSION["login"])) {
       echo "<p><form method='POST' action='menu.php'>";
       echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
@@ -154,7 +162,9 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-
+echo "<p><a href='menu.php' class='track'>";
+echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
+echo "</a></p>";
 echo "</body>";
 echo "</html>";
 ?>
