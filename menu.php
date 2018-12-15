@@ -109,10 +109,10 @@ try {
       $date = $ids[$i]["date"];
       echo "<p class='menu'><table>";
       echo "<tr><th class='name'>$name</th></tr>";
-      echo"<tr><td>材料 $ing</td></td>";
+      echo"<tr><td>材料: $ing</td></td>";
       echo"<tr><td>$amount 人分</td></td>";
-      echo"<tr><td>作成者 $author</td></td>";
-      echo"<tr><td>作成日時 $date</td></td>";
+      echo"<tr><td>作成者: $author</td></td>";
+      echo"<tr><td>作成日時: $date</td></td>";
       echo "</table></p>";
     }
     break;
@@ -156,15 +156,15 @@ try {
       $amount = $menus["amount"];
       $author = $menus["author"];
       $image = $menus["image"];
-      $enc_image = base64_encode($image);
+      $enc_image = $menus["image"];
       $date = $menus["date"];
       echo "<p class='menu'><table>";
       echo "<tr><th class='name'>$name</th></tr>";
-      echo "<tr><td><img src='data:image/png;base64', $enc_image></td></tr>";
-      echo "<tr><td>材料$ing</td></tr>";
+      echo "<tr><td><img src=\"".$image."\" alt=\"画像\"></td></tr>";
+      echo "<tr><td>材料: $ing</td></tr>";
       echo "<tr><td>$amount 人分</td><tr>";
-      echo "<tr><td>作成者 $author</td></tr>";
-      echo "<tr><td>作成日時 $date</td><tr>";
+      echo "<tr><td>作成者: $author</td></tr>";
+      echo "<tr><td>作成日時: $date</td><tr>";
       if (isset($_SESSION["login"]) and $author == $_SESSION["login"]) {
         echo "<tr><td><form method='POST' action='menu.php'>";
         echo "<input type='submit' value='削除' class='delete'>";
