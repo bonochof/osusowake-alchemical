@@ -33,17 +33,16 @@ echo "<img src='images/logo_out.png' class='logo'>";
 echo "</a></p>";
 
 // ログイン/ログアウト
-echo "<div class='right'><p><form method='POST' action='auth.php'>";
+echo "<p class='door'><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
   echo "<input type='image' src='images/login.png' class='btn_black'>";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
-
   echo $_SESSION["login"]." さん こんにちは";
   echo "<input type='image' src='images/logout.png' class='btn_black' >";
   echo "<input type='hidden' name='h' value='logout'>";
 }
-echo "</form></p></div>";
+echo "</form></p>";
 
 try {
   // DB接続
@@ -54,7 +53,7 @@ try {
   switch("$page") {
   case "insert":   // メニュー登録フォームページ
     echo "<p><form method='post' action='menu.php'>";
-    echo "<table>";
+    echo "<table class='reg'>";
     echo "<tr><td>メニュー名</td><td><input type='text' name='menu_name'></td></tr>";
     echo "<tr><td>材料</td><td><input type='text' name='menu_ing'></td></tr>";
     echo "<tr><td>量(何人前)</td><td><input type='text' name='menu_amount'></td></tr>";
@@ -91,6 +90,12 @@ try {
   case "DBsearch": // メニュー検索完了ページ
     break;
   default:         // メニュー表示ページ
+    if (isset($_SESSION["login"])) {
+      echo "<p><form method='POST' action='menu.php'>";
+      echo "<div><input type='submit' value='おすそわけ' class='insert' align='right'></div>";
+      echo "<input type='hidden' name='h' value='insert'>";
+      echo "</form></p>";
+    }
     $re = $s->query("select id from menu");
     $ids = $re->fetchAll();
     for ($i = 0; $i < count($ids); $i++) {
@@ -122,17 +127,7 @@ try {
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
-    if (isset($_SESSION["login"])) {
-      echo "<p><form method='POST' action='menu.php'>";
-      echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
-      echo "<input type='hidden' name='h' value='insert'>";
-      echo "</form></p>";
-     /* echo "<p><form method='POST' action='menu.php'>";
-      echo "<div class='textbox'><input type='image' value='ser' class='search' align='right'></div>";
-      echo "<input type='hidden' name='h' value='search'>";
-      echo "</form></p>";*/
-    }
-    echo "</div>";
+    //echo "</div>";
     break;
   }
 } catch(Exception $e) {
