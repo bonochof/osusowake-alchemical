@@ -103,7 +103,14 @@ try {
       echo "<tr><td><img src='data:image/png;base64', $enc_image></td></tr>";
       echo "<tr><td>材料$ing</td></tr>";
       echo "<tr><td>$amount 人分</td><tr>";
+      echo "<tr><td>作成者 $author</td></tr>";
       echo "<tr><td>作成日時 $date</td><tr>";
+      if (isset($_SESSION["login"]) and $author == $_SESSION["login"]) {
+        echo "<tr><td><form method='POST' actiron='menu.php'>";
+        echo "<input type='submit' value='削除' class='delete'>";
+        echo "<input type='hidden' name='h' value='delete'>";
+        echo "</form></td></tr>";
+      }
       echo "</table></p>";
     }
     echo "<p><form method='POST' action='menu.php'>";
@@ -112,11 +119,6 @@ try {
     echo "<div align='center' class = 'menu'>";
     echo "<img src='images/img01.png' width='300' height='300' vspace='100' hspace='10' align='left'>";
     if (isset($_SESSION["login"])) {
-      echo "<p><form method='POST' action='menu.php'>";
-      echo "<div class='textbox'><input type='text' name='id'></div>";
-      echo "<input type='image' value='削除' class='delete' align='right'>";
-      echo "<input type='hidden' name='h' value='delete'>";
-      echo "</form></p>";
       echo "<p><form method='POST' action='menu.php'>";
       echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
       echo "<input type='hidden' name='h' value='insert'>";
