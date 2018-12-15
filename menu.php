@@ -115,6 +115,11 @@ try {
         echo "<tr><td><form method='POST' actiron='menu.php'>";
         echo "<input type='submit' value='削除' class='delete'>";
         echo "<input type='hidden' name='h' value='delete'>";
+        
+        echo "<div class='track'><a href='dammy.html'>";
+echo "<img src='images/link_track.png' width='200px' height='200px'>";
+echo "</a></div>";
+        
         echo "</form></td></tr>";
       }
       echo "</table></p>";
@@ -148,9 +153,7 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-echo "<div  class='track'><a href='dammy.html'>";
-echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
-echo "</a></div>";
+
 echo "</body>";
 echo "</html>";
 ?>
