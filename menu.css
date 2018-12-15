@@ -16,14 +16,30 @@ p.title{
   text-align: center;
   text-shadow: 3px 3px 1px black;
 }
-
+/*
 div.logo{
 	margin-left: auto;
 	margin-right: auto;
 	
+}*/
+
+div.logo{
+display:inline-block;
+background-image:url("images/logo_out.png");
 }
 
+div.logo a{
+display:block;
+width:500px;
+height:200px;
+background-image:url("images/logo_out.png");
+text-indent:-9999px;
+}
 
+div.logo a:hover{
+background-image:url("images/logo_over.png");
+
+}
 
 div.right{
   position: relative;
