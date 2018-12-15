@@ -25,7 +25,7 @@ echo "<body>";
 
 // ロゴ
 echo "<p><a href='menu.php'>";
-echo "<img src='images/logo.png' class='logo'>";
+echo "<img src='images/logo_out.png' class='logo'>";
 //$over="images/logo_over.png";
 //$out="images/logo_out.png";
 //echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src=images/logo_over.png' onmouseout='this.src=images/logo_out.png'>";
