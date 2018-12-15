@@ -122,10 +122,6 @@ try {
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
-   
-    
-    echo "<div align='center' class = 'menu'>";
-    echo "<img src='images/img01.png'>";
     if (isset($_SESSION["login"])) {
       echo "<p><form method='POST' action='menu.php'>";
       echo "<div class='textbox'><input type='image' value='ins' class='insert' align='right'></div>";
