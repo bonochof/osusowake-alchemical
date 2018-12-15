@@ -17,11 +17,11 @@ EOH;
 echo $head;
 echo "<body>";
 // ロゴ
-echo "<p><a href='menu.php' class='menu_back'>";
-echo "<img src='images/logo.png' class='logo'>";
-echo "</a></p>";
+echo "<div class='logo'><a href='menu.php' >";
+echo "<img src='images/logo_over.png'  width='500px' height='200px'>";
+echo "</a></div>";
 $h_d = $_POST["h"];
-echo "<form method='POST' action='auth.php'>";
+echo "<div class='f_login'><form method='POST' action='auth.php'>";
 switch($h_d){
 case "judge":
   if($_POST["id"] === $SESSID and $_POST["pwd"] === $SESSPWD){
@@ -35,7 +35,7 @@ case "judge":
 case "login":
   echo "<table class='login'><tr><td>ID</td><td><input type='text' name='id'></td></tr>";
   echo "<tr><td>パスワード</td><td><input type='password' name='pwd'></td></tr></table>";
-  echo "<input type='submit' value='ログイン' class='btn'>";
+  echo "<div class='btn_login'><input type='submit' value='ログイン'></div>";
   echo "<input type='hidden' name='h' value='judge'>";
   break;
 case "logout":
@@ -44,9 +44,9 @@ case "logout":
   session_destroy();
   break;
 }
-echo "</form>";
+echo "</form></div>";
 echo "<p><a href='auth.php'></p>";
-echo "<br><a href='menu.php' class='btn_blue'>トップメニューに戻ります</a>";
+echo "<br><div class='top'><a href='menu.php' class='btn_blue'>トップメニューに戻ります</a></div>";
 echo "</body>";
 echo "</html>";
 ?>

@@ -1,7 +1,6 @@
 body{
   background: #D9E5FF;
   font-family: "Meiryo";
-  text-align: center;
   background-image:url("images/city.png");
  background-repeat:repeat-x ;
  background-position:top;
@@ -16,34 +15,42 @@ p.title{
   text-align: center;
   text-shadow: 3px 3px 1px black;
 }
-/*
 div.logo{
+width:500px;
 	margin-left: auto;
 	margin-right: auto;
 	
-}*/
-
-div.logo{
-display:inline-block;
-background-image:url("images/logo_out.png");
+}
+div.top{
+width:300px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+div.btn_login{
+width:100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+div.f_login{
+width:300px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-div.logo a{
-display:block;
-width:500px;
-height:200px;
-background-image:url("images/logo_out.png");
-text-indent:-9999px;
+
+div.door{
+width: 300px;
+margin-left:auto;
 }
 
-div.logo a:hover{
-background-image:url("images/logo_over.png");
-
+div.insert{
+width:100px;
+font-size:30px;
+ margin-left: auto;
+  margin-right: auto;
 }
 
-p.door{
-
-}
 
 div.textbox{
   padding-bottom: 20px;
@@ -63,30 +70,34 @@ table.login{
   margin: 1.5em 0;
 }
 
-/*
-.menu_back{
-    background: url("images/logo_over.png") no-repeat;
-    width: 500px;
-    height: 200px;
+div.map{
+width: 700px;
+ margin-left: auto;
+  margin-right: auto;
 }
-.menu_back a{
-    display: block;
-}
-.menu_back img{
-    border: none;
-}
-.menu_back a:hover{
-    background: none;
-}
-.menu_back a:hover img{
-    visibility: hidden;
-}
-*/
 
-.track {
-  margin-left:auto;
-  margin-right:auto;
+div.food{
+width: 700px;
+font-size:30px;
+ margin-left: auto;
+  margin-right: auto;
 }
+
+
+div.now{
+width: 700px;
+font-size:20px;
+ margin-left: auto;
+  margin-right: auto;
+}
+
+
+div.track {
+width: 300px;
+margin-left:auto;
+margin-right:auto;
+}
+
 
 /*装飾*/
 h1:before{

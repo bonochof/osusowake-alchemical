@@ -19,30 +19,25 @@ EOH;
 echo $head;
 echo "<body>";
 
-//echo "<div class='demo01'>";
-//echo	"<a href='menu.php'></a>";
-//echo "</div>";
+
 
 // ロゴ
-echo "<p><a href='menu.php'>";
-echo "<img src='images/logo_out.png' class='logo'>";
-//$over="images/logo_over.png";
-//$out="images/logo_out.png";
-//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src=images/logo_over.png' onmouseout='this.src=images/logo_out.png'>";
-//echo "<img src='images/logo_out.png' width='500px' height='200px' vspace='50' hspace='30' align='left' onmouseover='this.src='.$over onmouseout='this.src='.$out>";
-echo "</a></p>";
+echo "<div class='logo'><a href='menu.php'>";
+echo "<img src='images/logo_over.png'　 width='500px' height='200px'　>";
+
+echo "</a></div>";
 
 // ログイン/ログアウト
-echo "<p class='door'><form method='POST' action='auth.php'>";
+echo "<div class='door'><form method='POST' action='auth.php'>";
 if (empty($_SESSION["login"])) {
-  echo "<input type='image' src='images/login.png' class='btn_black'>";
+  echo "<input type='image' src='images/login.png'  width='80px' height='80px' >";
   echo "<input type='hidden' name='h' value='login'>";
 } else {
   echo $_SESSION["login"]." さん こんにちは";
-  echo "<input type='image' src='images/logout.png' class='btn_black' >";
+  echo "<input type='image' src='images/logout.png'  width='80px' height='80px'>";
   echo "<input type='hidden' name='h' value='logout'>";
 }
-echo "</form></p>";
+echo "</form></div>";
 
 try {
   // DB接続
@@ -92,7 +87,7 @@ try {
   default:         // メニュー表示ページ
     if (isset($_SESSION["login"])) {
       echo "<p><form method='POST' action='menu.php'>";
-      echo "<div><input type='submit' value='おすそわけ' class='insert' align='right'></div>";
+      echo "<div class='insert'><input type='submit' value='おすそわけ' align='right'></div>";
       echo "<input type='hidden' name='h' value='insert'>";
       echo "</form></p>";
     }
@@ -153,9 +148,9 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-echo "<p><a href='menu.php' class='track'>";
+echo "<div  class='track'><a href='dammy.html'>";
 echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
-echo "</a></p>";
+echo "</a></div>";
 echo "</body>";
 echo "</html>";
 ?>
