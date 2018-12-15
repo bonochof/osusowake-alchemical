@@ -116,6 +116,15 @@ try {
       echo "</table></p>";
     }
     break;
+  case receive:
+    $r_id = $_POST["receive_id"];
+    $s->query("delete from menu where id=$r_id");
+    echo "<p>おすそわけされました</p>";
+    echo "<form method='POST' action='menu.php'>";
+    echo "感想 <input type='textbox'>";
+    echo "<input type='submit' value='ごちそうさま'>";
+    echo "</form>";
+    break;
   default:         // メニュー表示ページ
     // おすそわけボタン
     if (isset($_SESSION["login"])) {
@@ -157,13 +166,21 @@ try {
       echo "<tr><td>作成者 $author</td></tr>";
       echo "<tr><td>作成日時 $date</td><tr>";
       if (isset($_SESSION["login"]) and $author == $_SESSION["login"]) {
-        echo "<tr><td><form method='POST' actiron='menu.php'>";
+        echo "<tr><td><form method='POST' action='menu.php'>";
         echo "<input type='submit' value='削除' class='delete'>";
         echo "<input type='hidden' name='h' value='delete'>";
         echo "<input type='hidden' name='delete_id' value='$sid'>";
         echo "</form></td></tr>";
       }
-      echo "</table></p>";
+      echo "</table>";
+      //if (isset($_SESSION["login"]) {
+        echo "<form method='POST' action='menu.php'>";
+        echo "<input type='submit' value='もらう'>";
+        echo "<input type='hidden' name='h' value='receive'>";
+        echo "<input type='hidden' name='receive_id' value='$sid'>";
+        echo "</form>";
+      //}
+      echo "</p>";
     }
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
