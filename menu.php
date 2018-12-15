@@ -24,8 +24,8 @@ echo "<body>";
 //echo "</div>";
 
 // ロゴ
-echo "<p><a href='menu.php' class='menu_back'>";
-echo "<img src='images/logo.png' width='500px' height='200px' vspace='50' hspace='30' align='left'>";
+echo "<p><a href='menu.php'>";
+echo "<img src='images/logo.png' class='logo'>";
 echo "</a></p>";
 // ログイン/ログアウト
 echo "<div class='right'><p><form method='POST' action='auth.php'>";
@@ -85,6 +85,27 @@ try {
   case "DBsearch": // メニュー検索完了ページ
     break;
   default:         // メニュー表示ページ
+    $re = $s->query("select id from menu");
+    $ids = $re->fetchAll();
+    for ($i = 0; $i < count($ids); $i++) {
+      $sid = $ids[$i]["id"];
+      $re = $s->query("select * from menu where id=$sid");
+      $menus = $re->fetch();
+      $name = $menus["name"];
+      $ing = $menus["ing"];
+      $amount = $menus["amount"];
+      $author = $menus["author"];
+      $image = $menus["image"];
+      $enc_image = base64_encode($image);
+      $date = $menus["date"];
+      echo "<p class='menu'><table>";
+      echo "<tr><th class='name'>$name</th></tr>";
+      echo "<tr><td><img src='data:image/png;base64', $enc_image></td></tr>";
+      echo "<tr><td>材料$ing</td></tr>";
+      echo "<tr><td>$amount 人分</td><tr>";
+      echo "<tr><td>作成日時 $date</td><tr>";
+      echo "</table></p>";
+    }
     echo "<p><form method='POST' action='menu.php'>";
     echo "<input type='hidden' name='h' value='search'>";
     echo "</form></p>";
@@ -131,7 +152,6 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-//echo "</p>":
 
 echo "</body>";
 echo "</html>";

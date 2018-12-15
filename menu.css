@@ -47,7 +47,8 @@ div.textbox{
 }
 
 table.login{
-  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*おすそわけ錬金術*/
@@ -329,9 +330,9 @@ p.menu{
 	width:1200px;
 	height:500px;
 	background-color:#fff;
-	position:relative;
-	top:0px;
-	bottom:500px;
+	//position:relative;
+	//top:500px;
+	//bottom:500px;
     font-size:16px;
     font-weight:bold;
     font-family:"ＤＦロマン雪W9",fantasy;
@@ -551,3 +552,11 @@ section .inner2 div {
     }
 }
 
+.name {
+  font-size:30px;
+}
+
+.logo {
+  width: 500px;
+  height: 200px;
+}
