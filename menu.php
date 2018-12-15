@@ -77,13 +77,12 @@ try {
     echo "<p>メニューを登録しました</p>";
     break;
   case "delete":   // メニュー削除ページ
-    break;
-  case "DBdelete": //メニュー削除完了ページ
-    $del_id = $_POST["menu_id"];
+    $del_id = $_POST["delete_id"];
     if (preg_match("/^[0-9]+$/", $del_id)) {
       $s->query("delete from menu where id=$del_id");
     }
     $re = $s->query("select * from menu order by id");
+    echo "<p>メニューを削除しました</p>";
     break;
   case "search": //メニュー検索ページ
     $ser_word = $_POST["search_word"];
@@ -168,6 +167,7 @@ try {
         echo "<tr><td><form method='POST' actiron='menu.php'>";
         echo "<input type='submit' value='削除' class='delete'>";
         echo "<input type='hidden' name='h' value='delete'>";
+        echo "<input type='hidden' name='delete_id' value='$id'>";
         echo "</form></td></tr>";
       }
       echo "</table></p>";
