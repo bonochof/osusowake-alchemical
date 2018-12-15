@@ -51,7 +51,7 @@ try {
     echo "<tr><td>量(何人前)</td><td><input type='text' name='menu_amount'></td></tr>";
     echo "<tr><td>画像</td><td><input type='file' name='menu_image'></td></tr>";
     echo "</table>";
-    echo "<input type='submit' name='menu_insert' value='登録'>";
+    echo "<div class='center'><input type='submit' name='menu_insert' value='登録'></div>";
     echo "<input type='hidden' name='h' value='DBinsert'>";
     echo "</form></p>";
     break;
@@ -152,7 +152,7 @@ try {
       $date = $menus["date"];
       echo "<p class='menu'><table>";
       echo "<tr><th class='name'>$name</th></tr>";
-      echo "<tr><td><img src=\"".$image."\" alt=\"画像\"></td></tr>";
+      echo "<tr><td><img src=\"".$image."\" alt=\"画像\" width='200px'></td></tr>";
       echo "<tr><td>材料: $ing</td></tr>";
       echo "<tr><td>$amount 人分</td><tr>";
       echo "<tr><td>作成者: $author</td></tr>";
@@ -203,9 +203,6 @@ echo "<div class='flake11'></div>";
 echo "<div class='flake12'></div>";
 echo "</div>";
 echo "</section>";
-echo "<div  class='track'><a href='dammy.html'>";
-echo "<img src='images/link_track.png' width='200px' height='200px' align='center'>";
-echo "</a></div>";
 echo "</body>";
 echo "</html>";
 ?>
