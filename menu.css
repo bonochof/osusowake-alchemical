@@ -23,13 +23,9 @@ div.logo{
 	
 }
 
+p.door{
 
-
-div.right{
-  //position: relative;
-  //margin-right: auto; //00px;
 }
-
 
 div.textbox{
   padding-bottom: 20px;
@@ -545,4 +541,9 @@ section .inner2 div {
 
 .delete {
   text-color: red;
+}
+
+table.reg{
+  margin-left: auto;
+  margin-right: auto;
 }
